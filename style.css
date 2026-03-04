@@ -1,0 +1,185 @@
+body{
+            background-color: #e8e8e8;
+            margin: 0;
+            animation: backgroundFlash 10s linear infinite;
+            font-family: 'Miltonian Tattoo';
+            color: maroon;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bulb-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 30%;
+            z-index: 1;
+            transform-origin: top center;
+        }
+
+        .wire{
+            width: 4px;
+            height: 25vh;
+            background: black;
+        }
+
+        .connector{
+            width: 30px;
+            aspect-ratio: 4/5;
+            border-radius: 1px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            z-index: 2;
+            background: #555555;
+        }
+
+        .grove{
+            background: #424242;
+            width: 34px;
+            height: 3px;
+            z-index: 3;
+        }
+
+        .bulb{
+            width: 92px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #ffee00;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 0px 150px 75px rgba(245, 223, 77, 1);
+            z-index: 1;
+            animation: bulbFlash 10s linear infinite;
+            cursor: pointer;
+        }
+
+        h1 {
+            position: fixed;
+            top: 15vh;
+            right: 15%;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            z-index: 2;
+            cursor: default;
+            margin: 0;
+            display: block;
+        }
+
+        span {
+            display: block;
+        }
+
+        h1:hover {
+            color: darkgoldenrod;
+            text-shadow: 0 0 5px darkgoldenrod;
+        }
+
+        #webCanvas {
+            position: fixed;
+            z-index: 0;
+            width: min(600px, 90vw);
+            height: min(600px, 90vw);
+            left: -20%;
+            top: -20%
+        }
+
+        .batman-logo {
+            position: fixed;
+            bottom: -40%;
+            left: 50%;
+            z-index: 0;
+            width: min(300px, 50vw);
+            transform: rotate(20deg);
+        }
+
+        @keyframes backgroundFlash {
+            0%, 1%, 10%, 11%, 40%, 41%, 75%, 82%, 83% {
+                background-color: #1d1e22;
+            }
+            1.001%, 11.001%, 12%, 39.999%, 41.001%, 75.001%, 81.001%, 82.001%, 83.001%, 88% {
+                background-color: #e8e8e8;
+            }
+        }
+
+        @keyframes bulbFlash{
+            0%, 1%, 10%, 11%, 40%, 41%, 75%, 82%, 83% {
+                background: black;
+                box-shadow: 0px 0px 0px 0px transparent;
+            }
+            1.001%, 11.001%, 12%, 39.999%, 41.001%, 75.001%, 81.001%, 82.001%, 83.001%, 88% {
+                background: rgba(255, 235, 0, 1);
+                box-shadow: 0px 0px 150px 75px rgba(245, 223, 77, 1);
+            }
+        }
+
+        @keyframes batmanMove {
+            0% { 
+                transform: translateX(50%) translateY(150%) rotate(60deg);
+            }
+            100% {
+                transform: translateX(-300%) translateY(-550%) rotate(60deg);
+            }
+        }
+
+.batman-logo.animate {
+    animation: batmanMove 1s ease-in-out forwards;
+}
+
+@keyframes bulbFall {
+    0% { 
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(500px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.invite-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1d1e22;
+    border: 3px solid white;
+    padding: 40px;
+    z-index: 100;
+    text-align: center;
+    color: white;
+    font-family: 'Miltonian Tattoo';
+    border-radius: 10px;
+    min-width: 400px;
+    opacity: 0;
+    cursor: default;
+}
+
+.invite-popup h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffee00;
+}
+
+.invite-popup p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: white;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
